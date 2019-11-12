@@ -18,9 +18,9 @@ model: any = {};
     this.authServie.login(this.model).subscribe(
 next => {
   console.log('logged in Succesfully');
-}, error => {console.log('Failed to Login');
-});
-  }
+}, error => {console.log(error); });
+}
+
 
 loggedIn() {
 const token = localStorage.getItem('token');
