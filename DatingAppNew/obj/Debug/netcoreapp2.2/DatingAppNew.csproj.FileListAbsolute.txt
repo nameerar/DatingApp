@@ -1,0 +1,14 @@
+C:\Users\Bezos_PC\source\repos\DatingAppNew\DatingAppNew\bin\Debug\netcoreapp2.2\DatingAppNew.deps.json
+C:\Users\Bezos_PC\source\repos\DatingAppNew\DatingAppNew\bin\Debug\netcoreapp2.2\DatingAppNew.runtimeconfig.json
+C:\Users\Bezos_PC\source\repos\DatingAppNew\DatingAppNew\bin\Debug\netcoreapp2.2\DatingAppNew.runtimeconfig.dev.json
+C:\Users\Bezos_PC\source\repos\DatingAppNew\DatingAppNew\bin\Debug\netcoreapp2.2\DatingAppNew.dll
+C:\Users\Bezos_PC\source\repos\DatingAppNew\DatingAppNew\obj\Debug\netcoreapp2.2\DatingAppNew.csprojAssemblyReference.cache
+C:\Users\Bezos_PC\source\repos\DatingAppNew\DatingAppNew\obj\Debug\netcoreapp2.2\DatingAppNew.csproj.CoreCompileInputs.cache
+C:\Users\Bezos_PC\source\repos\DatingAppNew\DatingAppNew\obj\Debug\netcoreapp2.2\DatingAppNew.RazorAssemblyInfo.cache
+C:\Users\Bezos_PC\source\repos\DatingAppNew\DatingAppNew\obj\Debug\netcoreapp2.2\DatingAppNew.RazorAssemblyInfo.cs
+C:\Users\Bezos_PC\source\repos\DatingAppNew\DatingAppNew\obj\Debug\netcoreapp2.2\DatingAppNew.AssemblyInfoInputs.cache
+C:\Users\Bezos_PC\source\repos\DatingAppNew\DatingAppNew\obj\Debug\netcoreapp2.2\DatingAppNew.AssemblyInfo.cs
+C:\Users\Bezos_PC\source\repos\DatingAppNew\DatingAppNew\obj\Debug\netcoreapp2.2\DatingAppNew.RazorTargetAssemblyInfo.cache
+C:\Users\Bezos_PC\source\repos\DatingAppNew\DatingAppNew\bin\Debug\netcoreapp2.2\DatingAppNew.pdb
+C:\Users\Bezos_PC\source\repos\DatingAppNew\DatingAppNew\obj\Debug\netcoreapp2.2\DatingAppNew.dll
+C:\Users\Bezos_PC\source\repos\DatingAppNew\DatingAppNew\obj\Debug\netcoreapp2.2\DatingAppNew.pdb
