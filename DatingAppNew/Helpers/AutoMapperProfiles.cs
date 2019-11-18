@@ -12,16 +12,20 @@ namespace DatingAppNew.Helpers
     {
         public AutoMapperProfiles()
         {
-            CreateMap<User, UserForListDto>()
+            CreateMap <User, UserForListDto>()
                 .ForMember(dest => dest.PhotoUrl, opt => opt.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain).Url))
                 .ForMember(dest => dest.Age, opt => opt.MapFrom(src => src.DateOfBirth.CalculateAge()));
 
-            CreateMap<User, UserDetailDto>().ForMember(dest => dest.PhotoUrl, opt => opt.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain).Url))
+            CreateMap <User, UserDetailDto>().ForMember(dest => dest.PhotoUrl, opt => opt.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain).Url))
                 .ForMember(dest => dest.Age, opt => opt.MapFrom(src => src.DateOfBirth.CalculateAge()));
 
-            CreateMap<Photo, PhotoForDetailsDTO>();
+            CreateMap <Photo, PhotoForDetailsDTO>();
 
-            CreateMap<UserForUpdateDto, User>();
+            CreateMap <UserForUpdateDto, User>();
+
+            CreateMap <Photo, PhotoForReturnDto>();
+
+            CreateMap <PhotoForCreationDto, Photo>();
         }
     }
 }

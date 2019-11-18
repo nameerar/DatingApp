@@ -27,6 +27,8 @@ import { NgxGalleryModule } from 'ngx-gallery';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { MemberEditResolver } from './_resolver/member-edit.resolver';
 import { PreventChanges } from './_guards/prevent-changes.guard';
+import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 
@@ -46,12 +48,14 @@ export function tokenGetter() {
       MessagesComponent,
       MembersCardComponent,
       MemberDetailComponent,
-      MemberEditComponent
+      MemberEditComponent,
+      PhotoEditorComponent
    ],
    imports: [
 
 
       NgxGalleryModule,
+      FileUploadModule,
       BrowserModule,
       HttpClientModule,
       FormsModule,

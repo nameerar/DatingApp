@@ -13,6 +13,7 @@ using System.Text;
 using Microsoft.Extensions.Configuration;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Authorization;
+using AutoMapper;
 
 namespace DatingAppNew.Controllers
 {
@@ -23,11 +24,13 @@ namespace DatingAppNew.Controllers
     {
         private readonly IAuthRepositorycs _repo;
         private readonly IConfiguration _config;
+        private readonly IMapper _mapper;
 
-        public AuthController(IAuthRepositorycs repo,IConfiguration config)
+        public AuthController(IAuthRepositorycs repo,IConfiguration config, IMapper mapper)
         {
             _repo = repo;
             _config = config;
+            _mapper = mapper;
         }
 
         [HttpPost("register")]
@@ -57,13 +60,7 @@ namespace DatingAppNew.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody]UserForLoginDto userForLoginDto)
         {
-
-           
-
             var userFromRepo = await _repo.Login(userForLoginDto.Username.ToLower(), userForLoginDto.Password);
-
-
-
             if (userFromRepo == null)
                 return Unauthorized();
 
@@ -89,7 +86,14 @@ namespace DatingAppNew.Controllers
 
             var token = tokenhandler.CreateToken(tokenDescriptor);
 
-            return Ok(new { token = tokenhandler.WriteToken(token) });
+            var user = _mapper.Map<UserForListDto>(userFromRepo);
+
+            return Ok( new
+            {
+                token = tokenhandler.WriteToken(token),
+                user
+
+            });
 
         }
 

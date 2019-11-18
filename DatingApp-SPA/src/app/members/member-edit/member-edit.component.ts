@@ -12,8 +12,11 @@ import { AuthService } from 'src/app/_services/auth.service';
   styleUrls: ['./member-edit.component.css']
 })
 export class MemberEditComponent implements OnInit {
+  constructor(private authservice: AuthService,
+     private route: ActivatedRoute, private alertify: AlertifyService, private userservice: UserService) { }
 user: User;
 @ViewChild('editForm') editForm: NgForm;
+photoUrl: string;
 @HostListener('window:beforeunload', ['$event'])
 unloadNotification($event: any) {
 if (this.editForm.dirty) {
@@ -21,13 +24,11 @@ if (this.editForm.dirty) {
 }
 }
 
-  constructor(private authservice: AuthService,
-     private route: ActivatedRoute, private alertify: AlertifyService, private userservice: UserService) { }
-
   ngOnInit() {
     this.route.data.subscribe( data => {
      this.user = data['user'];
     });
+    this.authservice.currentPhotoUrl.subscribe(photoUrl => this.photoUrl = photoUrl);
   }
 
 
