@@ -1,14 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { Photo } from 'src/app/_models/photo';
 import { FileUploader } from 'ng2-file-upload';
 import { environment } from 'src/environments/environment';
 import { AuthService } from 'src/app/_services/auth.service';
-import { jsonpCallbackContext } from '@angular/common/http/src/module';
-import { url } from 'inspector';
+
 import { UserService } from 'src/app/_services/user.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
-import { NavComponent } from 'src/app/nav/nav.component';
-import { StaticInjector } from '@angular/core/src/di/injector';
+
 
 @Component({
   selector: 'app-photo-editor',
@@ -58,6 +56,11 @@ export class PhotoEditorComponent implements OnInit {
             isMain: res.isMain
           };
           this.photos.push(photo);
+          if (photo.isMain) {
+            this.authservice.changeMemberPhoto(photo.url);
+            this.authservice.currentUser.photoUrl = photo.url;
+            localStorage.setItem('user', JSON.stringify(this.authservice.currentUser));
+           }
         }
       };
     }

@@ -105,17 +105,24 @@ namespace DatingAppNew.Controllers
 
             var uploadResult = new ImageUploadResult();
 
-            if(file.Length > 0)
+            try
             {
-                using(var stream = file.OpenReadStream())
+                if (file.Length > 0)
                 {
-                    var uploadParams = new ImageUploadParams()
+                    using (var stream = file.OpenReadStream())
                     {
-                        File = new FileDescription(file.Name, stream),
-                        Transformation = new Transformation().Width(500).Height(500).Crop("fill").Gravity("face")
-                    };
-                    uploadResult = _cloudinary.Upload(uploadParams);
+                        var uploadParams = new ImageUploadParams()
+                        {
+                            File = new FileDescription(file.Name, stream),
+                            Transformation = new Transformation().Width(500).Height(500).Crop("fill").Gravity("face")
+                        };
+                        uploadResult = _cloudinary.Upload(uploadParams);
+                    }
                 }
+            }
+            catch(Exception ex)
+            {
+
             }
 
             photoForCreationDto.Url = uploadResult.Uri.ToString();

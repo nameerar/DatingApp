@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BsDropdownModule, TabsModule } from 'ngx-bootstrap';
 import { JwtModule } from '@auth0/angular-jwt';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -52,13 +54,12 @@ export function tokenGetter() {
       PhotoEditorComponent
    ],
    imports: [
-
-
       NgxGalleryModule,
       FileUploadModule,
       BrowserModule,
       HttpClientModule,
       FormsModule,
+      ReactiveFormsModule,
       BsDropdownModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       JwtModule.forRoot({
@@ -69,7 +70,11 @@ config: {
 }
 
       }),
-      TabsModule.forRoot()
+      TabsModule.forRoot(),
+      BsDatepickerModule.forRoot(),
+      BrowserAnimationsModule,
+
+
 
    ],
    providers: [
