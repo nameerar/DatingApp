@@ -4,6 +4,7 @@ import { retry } from 'rxjs/operators';
 import { AlertifyService } from '../_services/alertify.service';
 import { Router } from '@angular/router';
 import { User } from '../_models/user';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-nav',
@@ -21,14 +22,17 @@ photoUrl: string;
 
   login() {
     console.log(Date.now());
+    if (!this.model) {
+      return this.alertify.error('Please enter username or password');
+
+    }
     this.authServie.login(this.model).subscribe(
 next => {
   this.alertify.success('logged in Succesfully');
 }, error => {this.alertify.error(error); },
 () => {
   this.router.navigate(['/members']);
-}
-);
+});
 }
 
 

@@ -60,20 +60,6 @@ if (this.registerForm.valid) {
     });
   });
 }
-
-
-
-
-
-
-
-//   this.authService.register(this.model).subscribe(() => {
-//     this.alertify.success('registration successfull');
-//   }, error => {
-// this.alertify.error(error);
-//   });
-
-
 }
 
 cancel() {
@@ -81,5 +67,7 @@ cancel() {
   this.alertify.message('cancelled method');
 }
 
-
+Disable() {
+  return false;
+}
 }

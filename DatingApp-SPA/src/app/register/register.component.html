@@ -42,7 +42,7 @@
       <!-- DateOfBirth -->
     <div class="form-group">
     <input [ngClass]="{'is-invalid': registerForm.get('dateOfBirth').errors && registerForm.get('dateOfBirth').touched}" class="form-control"
-            placeholder="Date of Birth" formControlName="dateOfBirth" type="text"
+            placeholder="Date of Birth" formControlName="dateOfBirth" type="text" readonly="true" style="color: white;"
             bsDatepicker [bsConfig]="bsConfig"
             >
      <div class="invalid-feedback" *ngIf="registerForm.get('dateOfBirth').touched && registerForm.get('dateOfBirth').hasError('required')">Date of Birth is required</div>
@@ -117,7 +117,4 @@
     
   </form>
 
-  <p>
-    Form value: {{registerForm.value | json}}
-    Form status: {{registerForm.status | json}}
-  </p>
+ 
