@@ -32,6 +32,10 @@ import { PreventChanges } from './_guards/prevent-changes.guard';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import {TimeAgoPipe} from 'time-ago-pipe';
+import { ListResolver } from './_resolver/lists.resolver';
+import { MessagesResolver } from './_resolver/messages.resolver';
+import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
+
 
 
 
@@ -53,7 +57,9 @@ export function tokenGetter() {
       MemberDetailComponent,
       MemberEditComponent,
       PhotoEditorComponent,
-      TimeAgoPipe
+      TimeAgoPipe,
+      MemberMessagesComponent,
+
    ],
    imports: [
       NgxGalleryModule,
@@ -64,19 +70,17 @@ export function tokenGetter() {
       ReactiveFormsModule,
       BsDropdownModule.forRoot(),
       RouterModule.forRoot(appRoutes),
-      JwtModule.forRoot({
-config: {
-   tokenGetter: tokenGetter,
-   whitelistedDomains: ['localhost:5000'],
-   blacklistedRoutes: ['localhost:5000/api/auth']
-}
-
-      }),
       TabsModule.forRoot(),
       BsDatepickerModule.forRoot(),
       BrowserAnimationsModule,
       PaginationModule.forRoot(),
-      ButtonsModule.forRoot()
+      ButtonsModule.forRoot(),
+      JwtModule.forRoot({
+         config: {
+            tokenGetter: tokenGetter,
+            whitelistedDomains: ['localhost:5000']
+         }
+      })
 
 
 
@@ -90,7 +94,9 @@ config: {
       UserService,
       MemberListResolver,
       MemberEditResolver,
-      PreventChanges
+      PreventChanges,
+      ListResolver,
+      MessagesResolver
 
    ],
    bootstrap: [

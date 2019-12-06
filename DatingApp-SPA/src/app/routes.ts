@@ -10,6 +10,7 @@ import { MemberListResolver } from './_resolver/member-list.resolver';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { MemberEditResolver } from './_resolver/member-edit.resolver';
 import { PreventChanges } from './_guards/prevent-changes.guard';
+import { ListResolver } from './_resolver/lists.resolver';
 
 
 
@@ -25,8 +26,8 @@ children: [
     {path: 'members/:id' , component: MemberDetailComponent, canActivate: [AuthGuard], resolve: {user: MemberDetailResolver} },
     {path: 'member/edit', component: MemberEditComponent, canActivate: [AuthGuard], canDeactivate: [PreventChanges] ,
      resolve: {user: MemberEditResolver}},
-    {path: 'messages' , component: MessagesComponent},
-    {path: 'lists' , component: ListsComponent, canActivate: [AuthGuard]}
+    {path: 'messages' , component: MessagesComponent, canActivate: [AuthGuard], resolve: {messages: MemberListResolver}},
+    {path: 'lists' , component: ListsComponent, canActivate: [AuthGuard], resolve : {users: ListResolver}}
 
 ]
 },
